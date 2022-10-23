@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.lovelybin.cn/20221023004.html</loc>
+    
+    <lastmod>2022-10-23T10:37:29.205Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.lovelybin.cn/others.html</loc>
+    
+    <lastmod>2022-10-23T10:36:31.822Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.lovelybin.cn/20221023003.html</loc>
     
     <lastmod>2022-10-23T06:48:22.002Z</lastmod>
@@ -44,21 +58,7 @@
   </url>
   
   <url>
-    <loc>https://www.lovelybin.cn/others.html</loc>
-    
-    <lastmod>2022-05-14T15:01:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.lovelybin.cn/404.html</loc>
-    
-    <lastmod>2022-05-14T15:01:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.lovelybin.cn/archives/index.html</loc>
     
     <lastmod>2022-05-14T15:01:54.000Z</lastmod>
     
@@ -72,7 +72,7 @@
   </url>
   
   <url>
-    <loc>https://www.lovelybin.cn/tags/index.html</loc>
+    <loc>https://www.lovelybin.cn/archives/index.html</loc>
     
     <lastmod>2022-05-14T15:01:54.000Z</lastmod>
     
@@ -80,6 +80,13 @@
   
   <url>
     <loc>https://www.lovelybin.cn/friends/index.html</loc>
+    
+    <lastmod>2022-05-14T15:01:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.lovelybin.cn/tags/index.html</loc>
     
     <lastmod>2022-05-14T15:01:54.000Z</lastmod>
     

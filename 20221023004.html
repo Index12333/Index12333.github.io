@@ -4,13 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="VS2019代码片段初识与自定义, 学我想学">
+    <meta name="keywords" content="Lookup类型数据自定义过滤, 学我想学">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="前言：我们在编写代码时，有时候为了省事儿，往往只需要在开发工具中输入for 后敲Tab键时即可触发代码自动补全功能，在实际开发中非常好用。
-由此，我们为什么不能开发出自己的一套代码快速不全的小功能呢？
-这样以后只需要敲几个字符后，按一下Ta">
+    <meta name="description" content="自定义Lookup查找视图需要根据实际情况，是onChange触发，还是页面加载form_onLoad的时候就预设
+//需求：当要修改旧件名称时（Lookup）只能用新件名称从【替代料】中匹配替代料或被替代料获取目标产品。
+function">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>VS2019代码片段初识与自定义 | LoveBin`s Blog</title>
+    <title>Lookup类型数据自定义过滤 | LoveBin`s Blog</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -617,13 +617,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        VS2019代码片段初识与自定义
+                        Lookup类型数据自定义过滤
                     </div>
                 </div>
             </div>
@@ -738,8 +738,12 @@
                             <span class="chip bg-color">C#</span>
                         </a>
                         
-                        <a href="/tags/代码片段/" target="_blank">
-                            <span class="chip bg-color">代码片段</span>
+                        <a href="/tags/CRM/" target="_blank">
+                            <span class="chip bg-color">CRM</span>
+                        </a>
+                        
+                        <a href="/tags/JavaScript/" target="_blank">
+                            <span class="chip bg-color">JavaScript</span>
                         </a>
                         
                     </div>
@@ -750,8 +754,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/Blog/" class="post-category" target="_blank">
-                            Blog
+                        <a href="/categories/总结/" class="post-category" target="_blank">
+                            总结
                         </a>
                         
                     </div>
@@ -776,14 +780,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    749
+                    770
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
                 
@@ -799,118 +803,196 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>我们在编写代码时，有时候为了省事儿，往往只需要在开发工具中输入<code>for</code> 后敲<code>Tab</code>键时即可触发代码自动补全功能，在实际开发中非常好用。</p>
-<p>由此，我们为什么不能开发出自己的一套代码快速不全的小功能呢？</p>
-<p>这样以后只需要敲几个字符后，按一下<code>Tab</code>键即可快速生成我们自定义的模板，可大大降低重复性的工作。</p>
-<h3 id="参考源码路径："><a href="#参考源码路径：" class="headerlink" title="参考源码路径："></a>参考源码路径：</h3><p>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC#\Snippets\2052\Visual C#\ </p>
-<h2 id="标准示例"><a href="#标准示例" class="headerlink" title="标准示例"></a>标准示例</h2><pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CodeSnippets</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CodeSnippet</span> <span class="token attr-name">Format</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1.0.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Header</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Title</span><span class="token punctuation">></span></span>for<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Title</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Shortcut</span><span class="token punctuation">></span></span>for<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Shortcut</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Description</span><span class="token punctuation">></span></span>for 循环的代码片段<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Description</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Author</span><span class="token punctuation">></span></span>Microsoft Corporation<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Author</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SnippetTypes</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SnippetType</span><span class="token punctuation">></span></span>Expansion<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SnippetType</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SnippetType</span><span class="token punctuation">></span></span>SurroundsWith<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SnippetType</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SnippetTypes</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Header</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Snippet</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Declarations</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Literal</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ID</span><span class="token punctuation">></span></span>index<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ID</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Default</span><span class="token punctuation">></span></span>i<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Default</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ToolTip</span><span class="token punctuation">></span></span>索引<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ToolTip</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Literal</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Literal</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ID</span><span class="token punctuation">></span></span>max<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ID</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Default</span><span class="token punctuation">></span></span>length<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Default</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ToolTip</span><span class="token punctuation">></span></span>最大长度<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ToolTip</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Literal</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Declarations</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Code</span> <span class="token attr-name">Language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>csharp<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token cdata">&lt;![CDATA[for (int $index$ = 0; $index$ &lt; $max$; $index$++)
+                <h2 id="自定义Lookup查找视图"><a href="#自定义Lookup查找视图" class="headerlink" title="自定义Lookup查找视图"></a>自定义Lookup查找视图</h2><p>需要根据实际情况，是<code>onChange</code>触发，还是页面加载<code>form_onLoad</code>的时候就预设</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//需求：当要修改旧件名称时（Lookup）只能用新件名称从【替代料】中匹配替代料或被替代料获取目标产品。</span>
+<span class="token keyword">function</span> <span class="token function">form_onLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> new_productnew_id <span class="token operator">=</span> rtcrm<span class="token punctuation">.</span><span class="token function">getLookupId</span><span class="token punctuation">(</span><span class="token string">"new_productnew_id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>new_productnew_id <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">setProductLookUp</span><span class="token punctuation">(</span>new_productnew_id<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//页面加载时预设</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">setProductLookUp</span><span class="token punctuation">(</span>new_productnew_id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//new_srv_partsreplace 替代料</span>
+    <span class="token comment" spellcheck="true">//product 产品</span>
+    <span class="token keyword">var</span> fetchXml <span class="token operator">=</span> <span class="token template-string"><span class="token string">`&lt;fetch  mapping='logical' version='1.0' distinct='true'>
+  &lt;entity name='product'>
+    &lt;attribute name='name' />
+    &lt;attribute name='productid' />
+    &lt;link-entity name='new_srv_partsreplace' to='productid' from='new_productid' alias='p1' link-type='outer' />
+    &lt;link-entity name='new_srv_partsreplace' to='productid' from='new_product_partsreplaceid' alias='p2' link-type='outer' />
+    &lt;filter type='or'>
+      &lt;condition attribute='new_productid' entityname='p1' operator='eq' value='</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>new_productnew_id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">' />
+      &lt;condition attribute='new_product_partsreplaceid' entityname='p1' operator='eq' value='</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>new_productnew_id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">' />
+      &lt;condition attribute='new_productid' entityname='p2' operator='eq' value='</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>new_productnew_id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">' />
+      &lt;condition attribute='new_product_partsreplaceid' entityname='p2' operator='eq' value='</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>new_productnew_id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">' />
+    &lt;/filter>
+    &lt;order attribute='productnumber' />
+  &lt;/entity>
+&lt;/fetch>`</span></span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//通用写法</span>
+    <span class="token comment" spellcheck="true">//【注意】：row标签中的id的值目标实体ID值</span>
+    <span class="token keyword">var</span> layoutXml <span class="token operator">=</span> <span class="token string">"&lt;grid name='resultset' object='1' jump='name' select='1' icon='1' preview='1'>"</span> <span class="token operator">+</span>
+        <span class="token string">"&lt;row name='result' id='productid'>"</span> <span class="token operator">+</span>
+        <span class="token string">"&lt;cell name='name' width='150' />"</span> <span class="token operator">+</span>
+        <span class="token string">"&lt;/row>"</span> <span class="token operator">+</span>
+        <span class="token string">"&lt;/grid>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//第一个参数：为目标字段名，第二个参数：检索的目标实体</span>
+        rtcrm<span class="token punctuation">.</span><span class="token function">customizeLookupView</span><span class="token punctuation">(</span><span class="token string">"new_product_id"</span><span class="token punctuation">,</span> <span class="token string">"product"</span><span class="token punctuation">,</span> fetchXml<span class="token punctuation">,</span> layoutXml<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="二、后台接口配合前端Vue过滤lookup数据"><a href="#二、后台接口配合前端Vue过滤lookup数据" class="headerlink" title="二、后台接口配合前端Vue过滤lookup数据"></a>二、后台接口配合前端Vue过滤lookup数据</h2><h4 id="后台："><a href="#后台：" class="headerlink" title="后台："></a>后台：</h4><pre class="line-numbers language-c#"><code class="language-c#">/// <summary>
+/// 备件订单lookup过滤视图
+/// </summary>
+/// <param name="page">页数</param>
+/// <param name="count">总数</param>
+/// <param name="orderby">排序</param>
+/// <param name="condition">动态条件</param>
+/// <param name="filterValue">过滤</param>
+/// <returns></returns>
+public LookupViewResult GetProductLookupViewData(string entityName, int page, int count, string select, string orderby, string condition, string filter, string filterValue)
+{
+    var result = new LookupViewResult();
+
+    var qe = new QueryExpression("new_discount_price");
+    qe.Criteria.AddCondition("statecode", ConditionOperator.Equal, 0);
+    qe.Criteria.AddCondition("new_approvalstatus", ConditionOperator.Equal, 3);  //已审核
+    qe.ColumnSet.AddColumns("new_price", "new_product_id");
+    LinkEntity linkEntity = new LinkEntity("new_discount_price", "product", "new_product_id", "productid", JoinOperator.Inner);
+    linkEntity.EntityAlias = "p";
+    linkEntity.Columns.AddColumns("productnumber", "name");
+    linkEntity.LinkCriteria.AddCondition("statecode", ConditionOperator.Equal, 0);
+    //筛选明细
+    if (!string.IsNullOrWhiteSpace(filterValue))
+    {
+        var quickFilter = new FilterExpression
         {
-        $selected$ $end$
-        }]]></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Code</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Snippet</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CodeSnippet</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CodeSnippets</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            FilterOperator = LogicalOperator.Or,
+            Conditions =
+            {
+                new ConditionExpression("name", ConditionOperator.Like, "%" + filterValue + "%"),
+                new ConditionExpression("productnumber", ConditionOperator.Like, "%" + filterValue + "%"),
+            }
+        };
+        linkEntity.LinkCriteria.Filters.Add(quickFilter);
+    }
+    qe.LinkEntities.Add(linkEntity);
+    qe.PageInfo = new PagingInfo
+    {
+        Count = count,
+        PageNumber = page,
+        ReturnTotalRecordCount = true
+    };
+
+    if (!string.IsNullOrWhiteSpace(condition))
+    {
+        var cons = condition.Split(',');
+        cons.Each(item =>
+                  {
+                      var con = item.Split(' ');
+                      if (con[1].Equals("eq"))
+                      {
+                          qe.Criteria.AddCondition(con[0], ConditionOperator.Equal, con[2]);
+                      }
+                  });
+    }
+
+    var ec = organizationServiceAdmin.RetrieveMultiple(qe);
+    if (ec == null || ec.Entities.Count == 0)
+    {
+        result.TotalRecordCount = 0;
+        return result;
+    }
+
+    var listDic = new List<Dictionary<string, string>>();
+    foreach (var entity in ec.Entities)
+    {
+        var dic = new Dictionary<string, string>();
+        //产品名称
+        if (entity.Contains("p.name"))
+        {
+            dic.Add("new_product_idname", entity.GetAliasAttributeValue<string>("p.name"));
+        }
+        dic.Add("productid", entity.GetAttributeValue<EntityReference>("new_product_id").Id.ToString());
+        dic.Add("new_price", entity.GetAttributeValue<decimal>("new_price").ToString());
+        listDic.Add(dic);
+    }
+    result.TotalRecordCount = ec.TotalRecordCount;
+    result.Data = listDic;
+    result.PagingCookie = ec.PagingCookie;
+    return result;
+}
+
+//接口
+[HttpGet, Route("GetProductLookupViewData")]
+[Description("折旧物料自定义过滤")]
+public LookupViewResult GetProductLookupViewData(string entityName, int page, int count, string select, string orderby, string condition, string filter, string filterValue)
+{
+    return new SparepartsCommand(this.UserIdentity).GetProductLookupViewData(entityName, page, count, select, orderby, condition, filter, filterValue);
+}
+
+//类文件
+public class LookupViewResult
+{
+    public int TotalRecordCount { get; set; }
+
+    public string PagingCookie { get; set; }
+
+    public IList<Dictionary<string, string>> Data { get; set;
+    } = new List<Dictionary<string, string>>();
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="返回Json数据："><a href="#返回Json数据：" class="headerlink" title="返回Json数据："></a>返回Json数据：</h4><pre class="line-numbers language-json"><code class="language-json">Data<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>new_product_idname<span class="token operator">:</span> <span class="token string">"九号电动C60-TDT001Z-上海版-罗兰紫黄；九号电自C60-裸车-含电池"</span><span class="token punctuation">,</span>…<span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token number">0</span><span class="token operator">:</span> <span class="token punctuation">{</span>new_product_idname<span class="token operator">:</span> <span class="token string">"九号电动C60-TDT001Z-上海版-罗兰紫黄；九号电自C60-裸车-含电池"</span><span class="token punctuation">,</span>…<span class="token punctuation">}</span>
+new_price<span class="token operator">:</span> <span class="token string">"3500.0000000000"</span>
+new_product_idname<span class="token operator">:</span> <span class="token string">"九号电动C60-TDT001Z-上海版-罗兰紫黄；九号电自C60-裸车-含电池"</span>
+productid<span class="token operator">:</span> <span class="token string">"201c3625-5585-eb11-a12b-fa0bf8335e00"</span>
+PagingCookie<span class="token operator">:</span> <span class="token string">"&lt;cookie page=\"1\">&lt;new_discount_priceid last=\"{09273524-DE4A-ED11-A139-FA0BF8335E00}\" first=\"{09273524-DE4A-ED11-A139-FA0BF8335E00}\" />&lt;/cookie>"</span>
+TotalRecordCount<span class="token operator">:</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h3 id="相关学习文档"><a href="#相关学习文档" class="headerlink" title="相关学习文档."></a>相关学习文档.</h3><p><a href="http://www.cnblogs.com/anderslly/archive/2009/02/16/vs2008-code-snippets.html" target="_blank" rel="noopener">http://www.cnblogs.com/anderslly/archive/2009/02/16/vs2008-code-snippets.html</a></p>
-<hr>
-<h2 id="需要注意的点："><a href="#需要注意的点：" class="headerlink" title="需要注意的点："></a>需要注意的点：</h2><ul>
-<li>把代码包含在 <code>&lt;![CDATA[ ]]&gt;</code>中，因为代码很可能会包含一些<strong>特殊字符</strong>。</li>
-<li>操作方法：输入<shortcut>节中的代码简写单词后，按一次<strong>Tab键</strong>，即可直接打出代码片段，继续点击Tab键可在 <code>$</code> 包含的英文单词中（如：index,max）进行切换修改，按下<strong>回车键</strong>后，默认代码片段修改完成，且光标回到<strong>$end$</strong>位置。</shortcut></li>
-<li>被 <code>$</code>包裹的可修改单词必须要加在节点<declarations>下的 <code>&lt;Literal&gt;</code>节点中，并维护其中的值。</declarations></li>
-<li>相同的 <code>$</code>包裹单词，如：<strong>$index$</strong>，只要其中一个被修改，其他的也会跟着变。</li>
-<li>文件后缀名为：  .snippet</li>
-</ul>
-<h2 id="编写自己的代码片段"><a href="#编写自己的代码片段" class="headerlink" title="编写自己的代码片段"></a>编写自己的代码片段</h2><pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CodeSnippets</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CodeSnippet</span> <span class="token attr-name">Format</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1.0.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Header</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Title</span><span class="token punctuation">></span></span>ifcont<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Title</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Shortcut</span><span class="token punctuation">></span></span>ifcont<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Shortcut</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Description</span><span class="token punctuation">></span></span>if 语句的代码片段<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Description</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Author</span><span class="token punctuation">></span></span>Lovebin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Author</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SnippetTypes</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SnippetType</span><span class="token punctuation">></span></span>Expansion<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SnippetType</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SnippetType</span><span class="token punctuation">></span></span>SurroundsWith<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SnippetType</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SnippetTypes</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Header</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Snippet</span><span class="token punctuation">></span></span>      
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Code</span> <span class="token attr-name">Language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>csharp<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token cdata">&lt;![CDATA[if ($entity$.Contains("$new_b$"))
-  {
-    $selected$ $end$
-  }]]></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Code</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Declarations</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Literal</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ID</span><span class="token punctuation">></span></span>entity<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ID</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ToolTip</span><span class="token punctuation">></span></span>实体表<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ToolTip</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Default</span><span class="token punctuation">></span></span>entity<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Default</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Literal</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Literal</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ID</span><span class="token punctuation">></span></span>new_b<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ID</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ToolTip</span><span class="token punctuation">></span></span>字段<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ToolTip</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Default</span><span class="token punctuation">></span></span>new_b<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Default</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Literal</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Declarations</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Snippet</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CodeSnippet</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CodeSnippet</span> <span class="token attr-name">Format</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1.0.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Header</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Title</span><span class="token punctuation">></span></span>Getstring<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Title</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Shortcut</span><span class="token punctuation">></span></span>Getstring<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Shortcut</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Description</span><span class="token punctuation">></span></span>代码片段string<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Description</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Author</span><span class="token punctuation">></span></span>Lovebin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Author</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SnippetTypes</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SnippetType</span><span class="token punctuation">></span></span>Expansion<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SnippetType</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SnippetType</span><span class="token punctuation">></span></span>SurroundsWith<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SnippetType</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SnippetTypes</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Header</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Snippet</span><span class="token punctuation">></span></span>      
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Code</span> <span class="token attr-name">Language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>csharp<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token cdata">&lt;![CDATA[$entity$.GetAttributeValue&lt;string>("$filedname$");$end$]]></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Code</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Declarations</span><span class="token punctuation">></span></span>      
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Literal</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ID</span><span class="token punctuation">></span></span>filedname<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ID</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ToolTip</span><span class="token punctuation">></span></span>字段<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ToolTip</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Default</span><span class="token punctuation">></span></span>filedname<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Default</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Literal</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Literal</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ID</span><span class="token punctuation">></span></span>entity<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ID</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ToolTip</span><span class="token punctuation">></span></span>实体表<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ToolTip</span><span class="token punctuation">></span></span>
-          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Default</span><span class="token punctuation">></span></span>entity<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Default</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Literal</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Declarations</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Snippet</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CodeSnippet</span><span class="token punctuation">></span></span>
-  .....
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CodeSnippets</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="前端vue页面（公司封装protal端）："><a href="#前端vue页面（公司封装protal端）：" class="headerlink" title="前端vue页面（公司封装protal端）："></a>前端vue页面（公司封装protal端）：</h4><pre class="line-numbers language-vue"><code class="language-vue"><el-col :span="8">
+  <el-form-item
+    label="备件订单编号"
+    prop="new_srv_partsorder_id.id"
+    :rules="
+      queryForm.new_returntype2 == 1 ||
+      queryForm.new_returntype2 == 2
+        ? rules['new_srv_partsorder_id.id']
+        : [{ required: false }]
+    "
+  >
+    <rt-lookup
+      :disabled="
+        queryForm.new_approvalstatus.value == 2 ||
+        queryForm.new_approvalstatus.value == 3
+      "
+      v-model="queryForm.new_srv_partsorder_id"
+      entity="new_srv_partsorder"
+      idField="new_srv_partsorderid"
+      nameField="new_name"
+      :dialogRequestUrl="partsOrderRequestUrl"
+      :request-url="partsOrderRequestUrl"
+      dialogFilterFields="new_name"
+      :dialog-display-fields="[
+        { name: 'new_name', label: '备件订单编号' },
+        { name: 'new_product_idname', label: '产品名称' },
+        { name: 'new_productno', label: '产品编码' },
+        { name: 'new_shortname', label: '产品简称' },
+      ]"
+    />
+  </el-form-item>
+</el-col><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>    
+    <span class="token operator">...</span><span class="token operator">...</span>
+      partsOrderRequestUrl<span class="token punctuation">:</span>
+        <span class="token string">"../api/service1portal/SiteReturn/GetPartsorderLookupViewData"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//产品名称自定义过滤视图</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -1069,9 +1151,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《VS2019代码片段初识与自定义》
+                    《Lookup类型数据自定义过滤》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/20221023002.html" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/20221023004.html" property="cc:attributionName"
                rel="cc:attributionURL">
                 LoveBin
             </a> 采用
@@ -1112,7 +1194,7 @@
         repo: 'Index12333.github.io',
         owner: 'LoveBin',
         admin: "LoveBin",
-        id: '20221023002.html',
+        id: '20221023004.html',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1396,9 +1478,68 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/20221023004.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Lookup类型数据自定义过滤">
+                        
+                        <span class="card-title">Lookup类型数据自定义过滤</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            记录在CRM系统中如何过滤Lookup类型字段数据
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-10-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/总结/" class="post-category" target="_blank">
+                                    总结
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/" target="_blank">
+                        <span class="chip bg-color">C#</span>
+                    </a>
+                    
+                    <a href="/tags/CRM/" target="_blank">
+                        <span class="chip bg-color">CRM</span>
+                    </a>
+                    
+                    <a href="/tags/JavaScript/" target="_blank">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/20221023003.html">
                     <div class="card-image">
@@ -1435,9 +1576,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2022-10-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-10-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1459,63 +1600,6 @@
                     
                     <a href="/tags/SQL-Server/" target="_blank">
                         <span class="chip bg-color">SQL Server</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/20221022001.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="抽象方法与虚方法的区别">
-                        
-                        <span class="card-title">抽象方法与虚方法的区别</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            浅析抽象方法与虚方法的一些应用
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2022-10-22
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Blog/" class="post-category" target="_blank">
-                                    Blog
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/C/" target="_blank">
-                        <span class="chip bg-color">C#</span>
-                    </a>
-                    
-                    <a href="/tags/abstract/" target="_blank">
-                        <span class="chip bg-color">abstract</span>
-                    </a>
-                    
-                    <a href="/tags/virtual/" target="_blank">
-                        <span class="chip bg-color">virtual</span>
                     </a>
                     
                 </div>
