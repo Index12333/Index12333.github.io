@@ -623,7 +623,8 @@
 </div>
 <script>
 // 每天切换 banner 图.  Switch banner image every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+//'url(/medias/banner/' + new Date().getDay() + '.jpg)'
+$('.bg-cover').css('background-image', 'url(https://lovely-bin.oss-cn-beijing.aliyuncs.com/images/hexo_img/banner_1.jpg)');
 </script>
     </div>
 </div>
@@ -668,19 +669,10 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
-                <a href="/tags/代码片段/" title="代码片段: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="代码片段" style="background-color: #E8F8F5;">代码片段
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/BUG/" title="BUG: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="BUG" style="background-color: #FEF9E7;">BUG
+                            data-tagname="BUG" style="background-color: #E8F8F5;">BUG
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -689,16 +681,16 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/tags/CRM/" title="CRM: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="CRM" style="background-color: #F8F9F9;">CRM
+                            data-tagname="CRM" style="background-color: #FEF9E7;">CRM
                         <span class="tag-length">2</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/JavaScript/" title="JavaScript: 1">
+                <a href="/tags/代码片段/" title="代码片段: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="JavaScript" style="background-color: #82E0AA;">JavaScript
+                             chip-active "
+                            data-tagname="代码片段" style="background-color: #F8F9F9;">代码片段
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -707,7 +699,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/tags/Github/" title="Github: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Github" style="background-color: #D7BDE2;">Github
+                            data-tagname="Github" style="background-color: #82E0AA;">Github
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -716,7 +708,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/tags/Hexo/" title="Hexo: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Hexo" style="background-color: #A3E4D7;">Hexo
+                            data-tagname="Hexo" style="background-color: #D7BDE2;">Hexo
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -725,7 +717,16 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/tags/博客搭建/" title="博客搭建: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="博客搭建" style="background-color: #85C1E9;">博客搭建
+                            data-tagname="博客搭建" style="background-color: #A3E4D7;">博客搭建
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/JavaScript/" title="JavaScript: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="JavaScript" style="background-color: #85C1E9;">JavaScript
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -765,7 +766,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="VS2019代码片段初识与自定义">
+                            <img src="https://lovely-bin.oss-cn-beijing.aliyuncs.com/images/hexo_img/0.jpg" class="responsive-img" alt="VS2019代码片段初识与自定义">
                             
                             <span class="card-title">VS2019代码片段初识与自定义</span>
                         </div>
@@ -953,22 +954,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     siteTime();
 </script>
 
-//20221024新增：懒加载图片
-//引用了jquery百度的 cdn 源，也可替换其他的
-<script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
- //也可替换其他的lazyload源
-<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.min.js"></script>
-    <script type="text/javascript">
-      $(function() {  
-      //对所有 img 标签进行懒加载        
-          $("img").lazyload({
-          //设置占位图，我这里选用了一个 loading 的加载动画
-            placeholder:"/libs/lightGallery/img/loading.gif",
-            //加载效果
-              effect:"fadeIn"
-            });
-          });
-    </script>
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">

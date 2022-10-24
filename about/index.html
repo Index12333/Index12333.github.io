@@ -630,7 +630,8 @@
 </div>
 <script>
 // 每天切换 banner 图.  Switch banner image every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+//'url(/medias/banner/' + new Date().getDay() + '.jpg)'
+$('.bg-cover').css('background-image', 'url(https://lovely-bin.oss-cn-beijing.aliyuncs.com/images/hexo_img/banner_1.jpg)');
 </script>
     </div>
 </div>
@@ -886,7 +887,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         xAxis: [
             {
                 type: 'category',
-                data: ["C#","CRM","abstract","virtual","代码片段","BUG","JavaScript","Github","Hexo","博客搭建"]
+                data: ["C#","CRM","abstract","virtual","BUG","代码片段","Github","Hexo","博客搭建","JavaScript"]
             }
         ],
         yAxis: [
@@ -997,12 +998,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             
             
-            <a href="/tags/代码片段/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">代码片段</span>
-            </a>
-            
-            
-            
             <a href="/tags/BUG/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">BUG</span>
             </a>
@@ -1015,8 +1010,8 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             
             
-            <a href="/tags/JavaScript/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">JavaScript</span>
+            <a href="/tags/代码片段/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">代码片段</span>
             </a>
             
             
@@ -1035,6 +1030,12 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <a href="/tags/博客搭建/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">博客搭建</span>
+            </a>
+            
+            
+            
+            <a href="/tags/JavaScript/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">JavaScript</span>
             </a>
             
             
@@ -1281,22 +1282,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     siteTime();
 </script>
 
-//20221024新增：懒加载图片
-//引用了jquery百度的 cdn 源，也可替换其他的
-<script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
- //也可替换其他的lazyload源
-<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.min.js"></script>
-    <script type="text/javascript">
-      $(function() {  
-      //对所有 img 标签进行懒加载        
-          $("img").lazyload({
-          //设置占位图，我这里选用了一个 loading 的加载动画
-            placeholder:"/libs/lightGallery/img/loading.gif",
-            //加载效果
-              effect:"fadeIn"
-            });
-          });
-    </script>
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">

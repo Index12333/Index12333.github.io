@@ -623,7 +623,8 @@
 </div>
 <script>
 // 每天切换 banner 图.  Switch banner image every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+//'url(/medias/banner/' + new Date().getDay() + '.jpg)'
+$('.bg-cover').css('background-image', 'url(https://lovely-bin.oss-cn-beijing.aliyuncs.com/images/hexo_img/banner_1.jpg)');
 </script>
     </div>
 </div>
@@ -685,7 +686,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Lookup类型数据自定义过滤">
+                            <img src="https://lovely-bin.oss-cn-beijing.aliyuncs.com/images/hexo_img/5.jpg" class="responsive-img" alt="Lookup类型数据自定义过滤">
                             
                             <span class="card-title">Lookup类型数据自定义过滤</span>
                         </div>
@@ -896,22 +897,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     siteTime();
 </script>
 
-//20221024新增：懒加载图片
-//引用了jquery百度的 cdn 源，也可替换其他的
-<script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
- //也可替换其他的lazyload源
-<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.min.js"></script>
-    <script type="text/javascript">
-      $(function() {  
-      //对所有 img 标签进行懒加载        
-          $("img").lazyload({
-          //设置占位图，我这里选用了一个 loading 的加载动画
-            placeholder:"/libs/lightGallery/img/loading.gif",
-            //加载效果
-              effect:"fadeIn"
-            });
-          });
-    </script>
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
