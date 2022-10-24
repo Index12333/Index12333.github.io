@@ -617,7 +617,7 @@ function">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -780,14 +780,14 @@ function">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    770
+                    976
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
                 
@@ -846,106 +846,105 @@ function">
         <span class="token function">alert</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="二、后台接口配合前端Vue过滤lookup数据"><a href="#二、后台接口配合前端Vue过滤lookup数据" class="headerlink" title="二、后台接口配合前端Vue过滤lookup数据"></a>二、后台接口配合前端Vue过滤lookup数据</h2><h4 id="后台："><a href="#后台：" class="headerlink" title="后台："></a>后台：</h4><pre class="line-numbers language-c#"><code class="language-c#">/// <summary>
-/// 备件订单lookup过滤视图
-/// </summary>
-/// <param name="page">页数</param>
-/// <param name="count">总数</param>
-/// <param name="orderby">排序</param>
-/// <param name="condition">动态条件</param>
-/// <param name="filterValue">过滤</param>
-/// <returns></returns>
-public LookupViewResult GetProductLookupViewData(string entityName, int page, int count, string select, string orderby, string condition, string filter, string filterValue)
-{
-    var result = new LookupViewResult();
+<h2 id="二、后台接口配合前端Vue过滤lookup数据"><a href="#二、后台接口配合前端Vue过滤lookup数据" class="headerlink" title="二、后台接口配合前端Vue过滤lookup数据"></a>二、后台接口配合前端Vue过滤lookup数据</h2><h4 id="后台："><a href="#后台：" class="headerlink" title="后台："></a>后台：</h4><pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token comment" spellcheck="true">/*
+备件订单lookup过滤视图
+"page":页数
+"count":总数
+"orderby":排序
+"condition":动态条件
+"filterValue":过滤
+*/</span>
+<span class="token keyword">public</span> LookupViewResult <span class="token function">GetProductLookupViewData</span><span class="token punctuation">(</span><span class="token keyword">string</span> entityName<span class="token punctuation">,</span> <span class="token keyword">int</span> page<span class="token punctuation">,</span> <span class="token keyword">int</span> count<span class="token punctuation">,</span> <span class="token keyword">string</span> <span class="token keyword">select</span><span class="token punctuation">,</span> <span class="token keyword">string</span> <span class="token keyword">orderby</span><span class="token punctuation">,</span> <span class="token keyword">string</span> condition<span class="token punctuation">,</span> <span class="token keyword">string</span> filter<span class="token punctuation">,</span> <span class="token keyword">string</span> filterValue<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LookupViewResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    var qe = new QueryExpression("new_discount_price");
-    qe.Criteria.AddCondition("statecode", ConditionOperator.Equal, 0);
-    qe.Criteria.AddCondition("new_approvalstatus", ConditionOperator.Equal, 3);  //已审核
-    qe.ColumnSet.AddColumns("new_price", "new_product_id");
-    LinkEntity linkEntity = new LinkEntity("new_discount_price", "product", "new_product_id", "productid", JoinOperator.Inner);
-    linkEntity.EntityAlias = "p";
-    linkEntity.Columns.AddColumns("productnumber", "name");
-    linkEntity.LinkCriteria.AddCondition("statecode", ConditionOperator.Equal, 0);
-    //筛选明细
-    if (!string.IsNullOrWhiteSpace(filterValue))
-    {
-        var quickFilter = new FilterExpression
-        {
-            FilterOperator = LogicalOperator.Or,
-            Conditions =
-            {
-                new ConditionExpression("name", ConditionOperator.Like, "%" + filterValue + "%"),
-                new ConditionExpression("productnumber", ConditionOperator.Like, "%" + filterValue + "%"),
-            }
-        };
-        linkEntity.LinkCriteria.Filters.Add(quickFilter);
-    }
-    qe.LinkEntities.Add(linkEntity);
-    qe.PageInfo = new PagingInfo
-    {
-        Count = count,
-        PageNumber = page,
-        ReturnTotalRecordCount = true
-    };
+    <span class="token keyword">var</span> qe <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">QueryExpression</span><span class="token punctuation">(</span><span class="token string">"new_discount_price"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    qe<span class="token punctuation">.</span>Criteria<span class="token punctuation">.</span><span class="token function">AddCondition</span><span class="token punctuation">(</span><span class="token string">"statecode"</span><span class="token punctuation">,</span> ConditionOperator<span class="token punctuation">.</span>Equal<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    qe<span class="token punctuation">.</span>Criteria<span class="token punctuation">.</span><span class="token function">AddCondition</span><span class="token punctuation">(</span><span class="token string">"new_approvalstatus"</span><span class="token punctuation">,</span> ConditionOperator<span class="token punctuation">.</span>Equal<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//已审核</span>
+    qe<span class="token punctuation">.</span>ColumnSet<span class="token punctuation">.</span><span class="token function">AddColumns</span><span class="token punctuation">(</span><span class="token string">"new_price"</span><span class="token punctuation">,</span> <span class="token string">"new_product_id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    LinkEntity linkEntity <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkEntity</span><span class="token punctuation">(</span><span class="token string">"new_discount_price"</span><span class="token punctuation">,</span> <span class="token string">"product"</span><span class="token punctuation">,</span> <span class="token string">"new_product_id"</span><span class="token punctuation">,</span> <span class="token string">"productid"</span><span class="token punctuation">,</span> JoinOperator<span class="token punctuation">.</span>Inner<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    linkEntity<span class="token punctuation">.</span>EntityAlias <span class="token operator">=</span> <span class="token string">"p"</span><span class="token punctuation">;</span>
+    linkEntity<span class="token punctuation">.</span>Columns<span class="token punctuation">.</span><span class="token function">AddColumns</span><span class="token punctuation">(</span><span class="token string">"productnumber"</span><span class="token punctuation">,</span> <span class="token string">"name"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    linkEntity<span class="token punctuation">.</span>LinkCriteria<span class="token punctuation">.</span><span class="token function">AddCondition</span><span class="token punctuation">(</span><span class="token string">"statecode"</span><span class="token punctuation">,</span> ConditionOperator<span class="token punctuation">.</span>Equal<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//筛选明细</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrWhiteSpace</span><span class="token punctuation">(</span>filterValue<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> quickFilter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FilterExpression</span>
+        <span class="token punctuation">{</span>
+            FilterOperator <span class="token operator">=</span> LogicalOperator<span class="token punctuation">.</span>Or<span class="token punctuation">,</span>
+            Conditions <span class="token operator">=</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">new</span> <span class="token class-name">ConditionExpression</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span> ConditionOperator<span class="token punctuation">.</span>Like<span class="token punctuation">,</span> <span class="token string">"%"</span> <span class="token operator">+</span> filterValue <span class="token operator">+</span> <span class="token string">"%"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token keyword">new</span> <span class="token class-name">ConditionExpression</span><span class="token punctuation">(</span><span class="token string">"productnumber"</span><span class="token punctuation">,</span> ConditionOperator<span class="token punctuation">.</span>Like<span class="token punctuation">,</span> <span class="token string">"%"</span> <span class="token operator">+</span> filterValue <span class="token operator">+</span> <span class="token string">"%"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        linkEntity<span class="token punctuation">.</span>LinkCriteria<span class="token punctuation">.</span>Filters<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>quickFilter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    qe<span class="token punctuation">.</span>LinkEntities<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>linkEntity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    qe<span class="token punctuation">.</span>PageInfo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PagingInfo</span>
+    <span class="token punctuation">{</span>
+        Count <span class="token operator">=</span> count<span class="token punctuation">,</span>
+        PageNumber <span class="token operator">=</span> page<span class="token punctuation">,</span>
+        ReturnTotalRecordCount <span class="token operator">=</span> <span class="token keyword">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-    if (!string.IsNullOrWhiteSpace(condition))
-    {
-        var cons = condition.Split(',');
-        cons.Each(item =>
-                  {
-                      var con = item.Split(' ');
-                      if (con[1].Equals("eq"))
-                      {
-                          qe.Criteria.AddCondition(con[0], ConditionOperator.Equal, con[2]);
-                      }
-                  });
-    }
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrWhiteSpace</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> cons <span class="token operator">=</span> condition<span class="token punctuation">.</span><span class="token function">Split</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cons<span class="token punctuation">.</span><span class="token function">Each</span><span class="token punctuation">(</span>item <span class="token operator">=</span><span class="token operator">></span>
+                  <span class="token punctuation">{</span>
+                      <span class="token keyword">var</span> con <span class="token operator">=</span> item<span class="token punctuation">.</span><span class="token function">Split</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                      <span class="token keyword">if</span> <span class="token punctuation">(</span>con<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">Equals</span><span class="token punctuation">(</span><span class="token string">"eq"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                      <span class="token punctuation">{</span>
+                          qe<span class="token punctuation">.</span>Criteria<span class="token punctuation">.</span><span class="token function">AddCondition</span><span class="token punctuation">(</span>con<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ConditionOperator<span class="token punctuation">.</span>Equal<span class="token punctuation">,</span> con<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                      <span class="token punctuation">}</span>
+                  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    var ec = organizationServiceAdmin.RetrieveMultiple(qe);
-    if (ec == null || ec.Entities.Count == 0)
-    {
-        result.TotalRecordCount = 0;
-        return result;
-    }
+    <span class="token keyword">var</span> ec <span class="token operator">=</span> organizationServiceAdmin<span class="token punctuation">.</span><span class="token function">RetrieveMultiple</span><span class="token punctuation">(</span>qe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ec <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> ec<span class="token punctuation">.</span>Entities<span class="token punctuation">.</span>Count <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        result<span class="token punctuation">.</span>TotalRecordCount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    var listDic = new List<Dictionary<string, string>>();
-    foreach (var entity in ec.Entities)
-    {
-        var dic = new Dictionary<string, string>();
-        //产品名称
-        if (entity.Contains("p.name"))
-        {
-            dic.Add("new_product_idname", entity.GetAliasAttributeValue<string>("p.name"));
-        }
-        dic.Add("productid", entity.GetAttributeValue<EntityReference>("new_product_id").Id.ToString());
-        dic.Add("new_price", entity.GetAttributeValue<decimal>("new_price").ToString());
-        listDic.Add(dic);
-    }
-    result.TotalRecordCount = ec.TotalRecordCount;
-    result.Data = listDic;
-    result.PagingCookie = ec.PagingCookie;
-    return result;
-}
+    <span class="token keyword">var</span> listDic <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">List</span><span class="token operator">&lt;</span>Dictionary<span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token punctuation">,</span> <span class="token keyword">string</span><span class="token operator">></span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token keyword">var</span> entity <span class="token keyword">in</span> ec<span class="token punctuation">.</span>Entities<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> dic <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dictionary</span><span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token punctuation">,</span> <span class="token keyword">string</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//产品名称</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>entity<span class="token punctuation">.</span><span class="token function">Contains</span><span class="token punctuation">(</span><span class="token string">"p.name"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            dic<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token string">"new_product_idname"</span><span class="token punctuation">,</span> entity<span class="token punctuation">.</span><span class="token generic-method function">GetAliasAttributeValue<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token string">"p.name"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        dic<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token string">"productid"</span><span class="token punctuation">,</span> entity<span class="token punctuation">.</span><span class="token generic-method function">GetAttributeValue<span class="token punctuation">&lt;</span>EntityReference<span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token string">"new_product_id"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Id<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        dic<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token string">"new_price"</span><span class="token punctuation">,</span> entity<span class="token punctuation">.</span><span class="token generic-method function">GetAttributeValue<span class="token punctuation">&lt;</span><span class="token keyword">decimal</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token string">"new_price"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        listDic<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>dic<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    result<span class="token punctuation">.</span>TotalRecordCount <span class="token operator">=</span> ec<span class="token punctuation">.</span>TotalRecordCount<span class="token punctuation">;</span>
+    result<span class="token punctuation">.</span>Data <span class="token operator">=</span> listDic<span class="token punctuation">;</span>
+    result<span class="token punctuation">.</span>PagingCookie <span class="token operator">=</span> ec<span class="token punctuation">.</span>PagingCookie<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-//接口
-[HttpGet, Route("GetProductLookupViewData")]
-[Description("折旧物料自定义过滤")]
-public LookupViewResult GetProductLookupViewData(string entityName, int page, int count, string select, string orderby, string condition, string filter, string filterValue)
-{
-    return new SparepartsCommand(this.UserIdentity).GetProductLookupViewData(entityName, page, count, select, orderby, condition, filter, filterValue);
-}
+<span class="token comment" spellcheck="true">//接口</span>
+<span class="token punctuation">[</span>HttpGet<span class="token punctuation">,</span> <span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">"GetProductLookupViewData"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token function">Description</span><span class="token punctuation">(</span><span class="token string">"折旧物料自定义过滤"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token keyword">public</span> LookupViewResult <span class="token function">GetProductLookupViewData</span><span class="token punctuation">(</span><span class="token keyword">string</span> entityName<span class="token punctuation">,</span> <span class="token keyword">int</span> page<span class="token punctuation">,</span> <span class="token keyword">int</span> count<span class="token punctuation">,</span> <span class="token keyword">string</span> <span class="token keyword">select</span><span class="token punctuation">,</span> <span class="token keyword">string</span> <span class="token keyword">orderby</span><span class="token punctuation">,</span> <span class="token keyword">string</span> condition<span class="token punctuation">,</span> <span class="token keyword">string</span> filter<span class="token punctuation">,</span> <span class="token keyword">string</span> filterValue<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">SparepartsCommand</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>UserIdentity<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">GetProductLookupViewData</span><span class="token punctuation">(</span>entityName<span class="token punctuation">,</span> page<span class="token punctuation">,</span> count<span class="token punctuation">,</span> <span class="token keyword">select</span><span class="token punctuation">,</span> <span class="token keyword">orderby</span><span class="token punctuation">,</span> condition<span class="token punctuation">,</span> filter<span class="token punctuation">,</span> filterValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-//类文件
-public class LookupViewResult
-{
-    public int TotalRecordCount { get; set; }
+<span class="token comment" spellcheck="true">//类文件</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LookupViewResult</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> TotalRecordCount <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
 
-    public string PagingCookie { get; set; }
+    <span class="token keyword">public</span> <span class="token keyword">string</span> PagingCookie <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
 
-    public IList<Dictionary<string, string>> Data { get; set;
-    } = new List<Dictionary<string, string>>();
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">public</span> IList<span class="token operator">&lt;</span>Dictionary<span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token punctuation">,</span> <span class="token keyword">string</span><span class="token operator">></span><span class="token operator">></span> Data <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">List</span><span class="token operator">&lt;</span>Dictionary<span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token punctuation">,</span> <span class="token keyword">string</span><span class="token operator">></span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="返回Json数据："><a href="#返回Json数据：" class="headerlink" title="返回Json数据："></a>返回Json数据：</h4><pre class="line-numbers language-json"><code class="language-json">Data<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>new_product_idname<span class="token operator">:</span> <span class="token string">"九号电动C60-TDT001Z-上海版-罗兰紫黄；九号电自C60-裸车-含电池"</span><span class="token punctuation">,</span>…<span class="token punctuation">}</span><span class="token punctuation">]</span>
 <span class="token number">0</span><span class="token operator">:</span> <span class="token punctuation">{</span>new_product_idname<span class="token operator">:</span> <span class="token string">"九号电动C60-TDT001Z-上海版-罗兰紫黄；九号电自C60-裸车-含电池"</span><span class="token punctuation">,</span>…<span class="token punctuation">}</span>
 new_price<span class="token operator">:</span> <span class="token string">"3500.0000000000"</span>
@@ -954,45 +953,167 @@ productid<span class="token operator">:</span> <span class="token string">"201c3
 PagingCookie<span class="token operator">:</span> <span class="token string">"&lt;cookie page=\"1\">&lt;new_discount_priceid last=\"{09273524-DE4A-ED11-A139-FA0BF8335E00}\" first=\"{09273524-DE4A-ED11-A139-FA0BF8335E00}\" />&lt;/cookie>"</span>
 TotalRecordCount<span class="token operator">:</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h4 id="前端vue页面（公司封装protal端）："><a href="#前端vue页面（公司封装protal端）：" class="headerlink" title="前端vue页面（公司封装protal端）："></a>前端vue页面（公司封装protal端）：</h4><pre class="line-numbers language-vue"><code class="language-vue"><el-col :span="8">
-  <el-form-item
-    label="备件订单编号"
-    prop="new_srv_partsorder_id.id"
-    :rules="
-      queryForm.new_returntype2 == 1 ||
-      queryForm.new_returntype2 == 2
-        ? rules['new_srv_partsorder_id.id']
-        : [{ required: false }]
-    "
-  >
-    <rt-lookup
-      :disabled="
-        queryForm.new_approvalstatus.value == 2 ||
-        queryForm.new_approvalstatus.value == 3
-      "
-      v-model="queryForm.new_srv_partsorder_id"
-      entity="new_srv_partsorder"
-      idField="new_srv_partsorderid"
-      nameField="new_name"
-      :dialogRequestUrl="partsOrderRequestUrl"
-      :request-url="partsOrderRequestUrl"
-      dialogFilterFields="new_name"
-      :dialog-display-fields="[
-        { name: 'new_name', label: '备件订单编号' },
-        { name: 'new_product_idname', label: '产品名称' },
-        { name: 'new_productno', label: '产品编码' },
-        { name: 'new_shortname', label: '产品简称' },
-      ]"
-    />
-  </el-form-item>
-</el-col><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>    
-    <span class="token operator">...</span><span class="token operator">...</span>
-      partsOrderRequestUrl<span class="token punctuation">:</span>
-        <span class="token string">"../api/service1portal/SiteReturn/GetPartsorderLookupViewData"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//产品名称自定义过滤视图</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<h4 id="前端vue页面（公司封装protal端）："><a href="#前端vue页面（公司封装protal端）：" class="headerlink" title="前端vue页面（公司封装protal端）："></a>前端vue页面（公司封装protal端）：</h4><pre class="line-numbers language-vue"><code class="language-vue"><rt-header-button-group slot="toolbar">
+    <el-button icon="el-icon-tickets" @click="cancelevaluate" type="warning"
+               >物料折旧申请</el-button
+        >
+......
+</rt-header-button-group><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js">methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//物料折旧申请</span>
+    cancelevaluate<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>ApplyDialog<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token operator">...</span><span class="token punctuation">.</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/pictures/202210/Snipaste_20221024_095119.png" alt></p>
+<h5 id="弹框页面："><a href="#弹框页面：" class="headerlink" title="弹框页面："></a>弹框页面：</h5><pre class="line-numbers language-vue"><code class="language-vue"><template>
+  <el-dialog
+    width="30%"
+    class="rt-dialog"
+    title="物料折旧申请"
+    :visible.sync="dialogChangeVisible"
+    :before-close="clearTheData"
+  >
+    <el-form
+      ref="editForm"
+      :rules="rules"
+      :model="editForm"
+      label-width="120px"
+      label-position="left"
+      v-loading="loading"
+    >
+      <div>
+        <el-row :gutter="50">
+          <el-col :span="24" style="width: 100%">
+            <el-form-item
+              label="配件名称"
+              prop="new_product_id"
+              :required="false"
+            >
+              <rt-lookup
+                v-model="editForm.new_product_id"
+                entity="product"
+                idField="productid"
+                :dialogRequestUrl="queryUrl"
+                :request-url="queryUrl"
+                nameField="new_product_idname"
+                dialogFilterFields="new_product_idname"
+                dialog-orderby-fields="new_product_idname asc"
+                :dialog-display-fields="[
+                  { name: 'new_product_idname', label: '产品名称' },
+                  { name: 'new_price', label: '折旧价格' },
+                ]"
+              />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="50">
+          <el-col :span="24">
+            <el-form-item label="数量" prop="new_qty">
+              <rt-input type="number" v-model="editForm.new_qty"></rt-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </div>
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+      <el-button @click="cancel" :loading="btnLoading">{{
+        $t("CANCEL")
+      }}</el-button>
+      <el-button
+        @click="saveChange('editForm')"
+        type="primary"
+        :loading="btnLoading"
+        >{{ $t("BUTTON_DETERMINE") }}</el-button
+      >
+    </div>
+  </el-dialog>
+</template>
+
+<script>
+export default {
+  data: function () {
+    return {
+      btnLoading: false,
+      loading: false,
+      dialogChangeVisible: false,
+      //过滤Lookup数据接口
+      queryUrl: "api/service1portal/Spareparts/GetProductLookupViewData",
+      editForm: {
+        new_product_id: null,
+        new_qty: null,
+      },
+      rules: {
+        new_appealreason: [
+          {
+            required: true,
+            trigger: "change",
+          },
+        ],
+      },
+    };
+  },
+  mounted() {},
+  methods: {
+    saveChange(editForm) {
+      this.$refs[editForm].validate((valid) => {
+        if (!this.editForm.new_product_id) {
+          rt.showErrorToast("配件名称必填！");
+          return;
+        }
+        if (!this.editForm.new_qty) {
+          rt.showErrorToast("数量必填！");
+          return;
+        }
+        if (
+          this.editForm.new_qty &&
+          this.editForm.new_qty.indexOf(".", 0) != -1
+        ) {
+          rt.showErrorToast("数量必须为整数！");
+          return;
+        }
+        if (!valid) {
+          rt.showErrorToast(this.$t("PleaseInputRequiredFields"));
+          return;
+        } else {
+          this.loading = true;
+          var api = "api/service1portal/Spareparts/CreateDepreciation";
+          var params = {
+            new_product_id: this.editForm.new_product_id.id,
+            new_qty: parseInt(this.editForm.new_qty),
+          };
+          debugger;
+          rt.post(api, params)
+            .then((res) => {
+              this.loading = false;
+              rt.showSuccessToast(res);
+              this.dialogChangeVisible = false;
+              this.$emit("confirm");
+              this.editForm.new_product_id = null;
+              this.editForm.new_qty = null;
+            })
+            .catch((err) => {
+              this.loading = false;
+              this.btnLoading = false;
+              rt.showErrorToast(err);
+            });
+        }
+      });
+    },
+    clearTheData() {
+      this.dialogChangeVisible = false;
+    },
+    cancel() {
+      this.dialogChangeVisible = false;
+    },
+    show(val) {
+      this.dialogChangeVisible = true;
+    },
+  },
+};
+</script><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/pictures/202210/Snipaste_20221024_095141.png" alt></p>
 
             </div>
             <hr />
@@ -1487,7 +1608,7 @@ TotalRecordCount<span class="token operator">:</span> <span class="token number"
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Lookup类型数据自定义过滤">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Lookup类型数据自定义过滤">
                         
                         <span class="card-title">Lookup类型数据自定义过滤</span>
                     </div>
@@ -1545,7 +1666,7 @@ TotalRecordCount<span class="token operator">:</span> <span class="token number"
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="浅析存储过程">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="浅析存储过程">
                         
                         <span class="card-title">浅析存储过程</span>
                     </div>
@@ -1775,7 +1896,7 @@ TotalRecordCount<span class="token operator">:</span> <span class="token number"
            <!--<a href="/sitemap.xml" target="_blank">站点地图</a>丨-->
            
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">14.4k
+            <span class="white-color">14.6k
              丨            
           
 
@@ -1861,7 +1982,7 @@ TotalRecordCount<span class="token operator">:</span> <span class="token number"
       <span class="badge-subject">PV</span><span class="badge-value bg-brightgreen" id="busuanzi_value_site_pv"></span>
     </div>
     <div class="github-badge">
-      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">14.4k</span>
+      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">14.6k</span>
     </div>
 </footer>
 
