@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.lovelybin.cn/"/>
-  <updated>2022-10-25T01:17:05.897Z</updated>
+  <updated>2022-10-25T01:49:00.417Z</updated>
   <id>https://www.lovelybin.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.lovelybin.cn/221025001.html"/>
     <id>https://www.lovelybin.cn/221025001.html</id>
     <published>2022-10-25T00:46:10.000Z</published>
-    <updated>2022-10-25T01:17:05.897Z</updated>
+    <updated>2022-10-25T01:49:00.417Z</updated>
     
     <summary type="html">
     
@@ -185,9 +185,9 @@
       <category term="Blog" scheme="https://www.lovelybin.cn/categories/Blog/"/>
     
     
-      <category term="BUG" scheme="https://www.lovelybin.cn/tags/BUG/"/>
-    
       <category term="CRM" scheme="https://www.lovelybin.cn/tags/CRM/"/>
+    
+      <category term="BUG" scheme="https://www.lovelybin.cn/tags/BUG/"/>
     
   </entry>
   
