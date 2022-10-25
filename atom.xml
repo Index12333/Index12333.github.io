@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.lovelybin.cn/"/>
-  <updated>2022-10-24T02:28:55.278Z</updated>
+  <updated>2022-10-25T01:17:05.897Z</updated>
   <id>https://www.lovelybin.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>XrmToolBox中好用的CRM Online开发工具 SQL 4 CDS 分享</title>
+    <link href="https://www.lovelybin.cn/221025001.html"/>
+    <id>https://www.lovelybin.cn/221025001.html</id>
+    <published>2022-10-25T00:46:10.000Z</published>
+    <updated>2022-10-25T01:17:05.897Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;CRM Online开发，reporting service报表需要写fetchXML表达式，然而通过高级查找或者XrmToolBox中FetchBuilder配置通常不能满足一些复杂的逻辑。&lt;/p&gt;
+&lt;p&gt;通过SQL 4 CDS工具，不仅可以写SQL查询CRM
+        
+      
+    
+    </summary>
+    
+      <category term="经验" scheme="https://www.lovelybin.cn/categories/%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+      <category term="工具" scheme="https://www.lovelybin.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="FetchXML" scheme="https://www.lovelybin.cn/tags/FetchXML/"/>
+    
+  </entry>
   
   <entry>
     <title>Lookup类型数据自定义过滤</title>
