@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.lovelybin.cn/"/>
-  <updated>2022-10-25T01:49:00.417Z</updated>
+  <updated>2022-10-27T06:50:13.495Z</updated>
   <id>https://www.lovelybin.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL Server对日期的操作函数的使用</title>
+    <link href="https://www.lovelybin.cn/sql-server-operation-on-date.html"/>
+    <id>https://www.lovelybin.cn/sql-server-operation-on-date.html</id>
+    <published>2022-10-27T06:46:07.000Z</published>
+    <updated>2022-10-27T06:50:13.495Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在编写sql的时候，会碰到对日期的处理，特别是日期区间对业务数据的限制。&lt;br&gt;如：用户数据的是一个固定月份 2020-03
+        
+      
+    
+    </summary>
+    
+      <category term="Blog" scheme="https://www.lovelybin.cn/categories/Blog/"/>
+    
+    
+      <category term="SQL" scheme="https://www.lovelybin.cn/tags/SQL/"/>
+    
+      <category term="日期处理" scheme="https://www.lovelybin.cn/tags/%E6%97%A5%E6%9C%9F%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>XrmToolBox中好用的CRM Online开发工具 SQL 4 CDS 分享</title>
@@ -50,7 +78,7 @@
     <link href="https://www.lovelybin.cn/20221023004.html"/>
     <id>https://www.lovelybin.cn/20221023004.html</id>
     <published>2022-10-23T09:38:34.000Z</published>
-    <updated>2022-10-24T02:28:55.278Z</updated>
+    <updated>2022-10-27T06:48:17.524Z</updated>
     
     <summary type="html">
     
@@ -80,7 +108,7 @@
     <link href="https://www.lovelybin.cn/20221023003.html"/>
     <id>https://www.lovelybin.cn/20221023003.html</id>
     <published>2022-10-23T06:34:30.000Z</published>
-    <updated>2022-10-23T06:48:22.002Z</updated>
+    <updated>2022-10-25T05:19:20.734Z</updated>
     
     <summary type="html">
     
@@ -110,7 +138,7 @@
     <link href="https://www.lovelybin.cn/20221023002.html"/>
     <id>https://www.lovelybin.cn/20221023002.html</id>
     <published>2022-10-23T06:20:01.000Z</published>
-    <updated>2022-10-23T06:32:16.015Z</updated>
+    <updated>2022-10-25T05:18:20.454Z</updated>
     
     <summary type="html">
     
@@ -138,7 +166,7 @@
     <link href="https://www.lovelybin.cn/20221022001.html"/>
     <id>https://www.lovelybin.cn/20221022001.html</id>
     <published>2022-10-22T15:02:26.000Z</published>
-    <updated>2022-10-23T06:13:57.551Z</updated>
+    <updated>2022-10-25T05:18:17.088Z</updated>
     
     <summary type="html">
     
@@ -168,7 +196,7 @@
     <link href="https://www.lovelybin.cn/20221023001.html"/>
     <id>https://www.lovelybin.cn/20221023001.html</id>
     <published>2022-10-22T13:44:22.000Z</published>
-    <updated>2022-10-23T06:15:07.343Z</updated>
+    <updated>2022-10-25T05:18:11.326Z</updated>
     
     <summary type="html">
     
@@ -185,9 +213,9 @@
       <category term="Blog" scheme="https://www.lovelybin.cn/categories/Blog/"/>
     
     
-      <category term="CRM" scheme="https://www.lovelybin.cn/tags/CRM/"/>
-    
       <category term="BUG" scheme="https://www.lovelybin.cn/tags/BUG/"/>
+    
+      <category term="CRM" scheme="https://www.lovelybin.cn/tags/CRM/"/>
     
   </entry>
   
@@ -196,7 +224,7 @@
     <link href="https://www.lovelybin.cn/others.html"/>
     <id>https://www.lovelybin.cn/others.html</id>
     <published>2020-02-18T13:17:35.000Z</published>
-    <updated>2022-10-23T10:36:31.822Z</updated>
+    <updated>2022-10-25T05:20:00.480Z</updated>
     
     <summary type="html">
     
